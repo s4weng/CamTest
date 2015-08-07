@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/ng-img-crop.css">
+
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="cordova.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/ng-img-crop.js"></script>
+    
+  </head>
+
+<body ng-app="app">
+
+    <div ng-controller="CamCtrl">
+      <button ng-click="getPhoto()" class="button button-block button-primary">Take Photo</button>
+      <!--<img ng-src="{{lastPhoto}}" style="max-width: 100%">-->
+    </div>
+
+    <div class="cropArea" ng-controller="CropCtrl">
+    <img-crop image="lastPhoto" result-image="myCroppedImage"></img-crop>
+    </div>
+
+    <div>Cropped Image:</div>
+    <div><img ng-src="{{myCroppedImage}}" /></div>
+
+</body>
+  
+</html>
+
+<!--
+    <ion-header-bar>
+      <h1 class="title">Photos</h1>
+    </ion-header-bar>
+    <ion-content padding="true">
+      <div>Select an image file: <input type="file" id="fileInput" /></div>
+      <button ng-click="getPhoto()" class="button button-block button-primary">Take Photo</button>
+      <img ng-src="{{lastPhoto}}" style="max-width: 100%">
+      <img-crop image="http://melleum.com/data/uploads/23/340432-image.jpg" result-image="resultImage"></img-crop>
+      <img src="resultImage"/>
+    </ion-content>
+-->
